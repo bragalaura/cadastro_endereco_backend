@@ -23,13 +23,7 @@ public class EnderecoService {
 
 
     public Endereco obterPorId(Long id) {
-        Optional<Endereco> endereco = this.enderecoRepository.findById(id);
-
-        if (endereco.isPresent()) {
-            return endereco.get();
-        }
-
-        return null;
+        return this.enderecoRepository.findById(id).orElse(null);
     }
 
     public List<Endereco> obterPorZipcode(Integer zipcode) {

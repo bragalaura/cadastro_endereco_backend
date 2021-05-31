@@ -1,7 +1,6 @@
 package com.laurabraga.exemplo.rest.api.controllers;
 
 import com.laurabraga.exemplo.rest.api.entities.Endereco;
-import com.laurabraga.exemplo.rest.api.repositories.EnderecoRepository;
 import com.laurabraga.exemplo.rest.api.services.EnderecoService;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +11,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 
-import static io.restassured.module.mockmvc.RestAssuredMockMvc.*;
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.standaloneSetup;
 
 @WebMvcTest
 public class EnderecoControllerTest {
@@ -58,4 +58,6 @@ public class EnderecoControllerTest {
         .then()
             .statusCode(HttpStatus.NOT_FOUND.value());
     }
+
+
 }
